@@ -2,14 +2,29 @@ package com.williamfiset.algorithms.sorting
 
 import kotlin.jvm.JvmStatic
 
-class KotlinQuickSort : InplaceSort {
+
+class FunctionalQuickSort : InplaceSort {
     override fun sort(values: IntArray) {
-        quickSort(values)
+        var newArray = quickSort(values)
+        for (i in 0 .. values.size){
+            values[i] = newArray[i]
+        }
     }
 
     companion object {
-        private fun quickSort(ar: IntArray?, low: Int, high: Int) {
+        private fun quickSort(ar: IntArray): IntArray {
+            if (ar == null) {
+                return ar}
 
+            else if (ar.size < 2){
+                return ar
+            }
+
+            else{
+               val pivot = ar[0]
+                val (smaller, greater) = ar.partition { it <= pivot}
+                return quickSort(smaller.toIntArray()) + pivot + quickSort(greater.toIntArray())
+            }
 
         }
 
@@ -20,5 +35,9 @@ class KotlinQuickSort : InplaceSort {
             sorter.sort(array)
             println(array.contentToString())
         }
+
+
     }
 }
+
+

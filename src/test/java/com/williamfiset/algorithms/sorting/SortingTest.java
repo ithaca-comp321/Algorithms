@@ -22,6 +22,7 @@ public class SortingTest {
     HEAP_SORT(new Heapsort()),
     INSERTION_SORT(new InsertionSort()),
     KOTLIN_INSERTION_SORT(new KotlinInsertionSort()),
+    FUNCTIONAL_QUICK_SORT(new FunctionalQuickSort()),
     MERGE_SORT(new MergeSort()),
     QUICK_SORT(new QuickSort()),
     QUICK_SORT3(new QuickSort3()),
