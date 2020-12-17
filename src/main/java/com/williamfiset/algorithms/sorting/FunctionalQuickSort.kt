@@ -5,7 +5,7 @@ import kotlin.jvm.JvmStatic
 
 class FunctionalQuickSort : InplaceSort {
     override fun sort(values: IntArray) {
-        var newArray = quickSort(values)
+        val newArray = quickSort(values)
         for (i in 0 .. values.size){
             values[i] = newArray[i]
         }
@@ -13,19 +13,13 @@ class FunctionalQuickSort : InplaceSort {
 
     companion object {
         private fun quickSort(ar: IntArray): IntArray {
-            if (ar == null) {
-                return ar}
-
-            else if (ar.size < 2){
+            if (ar.size < 2) {
                 return ar
-            }
-
-            else{
+            } else {
                val pivot = ar[0]
                 val (smaller, greater) = ar.partition { it <= pivot}
                 return quickSort(smaller.toIntArray()) + pivot + quickSort(greater.toIntArray())
             }
-
         }
 
         @JvmStatic
@@ -35,8 +29,6 @@ class FunctionalQuickSort : InplaceSort {
             sorter.sort(array)
             println(array.contentToString())
         }
-
-
     }
 }
 
